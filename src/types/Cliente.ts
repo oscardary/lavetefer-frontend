@@ -1,6 +1,4 @@
 export interface interfaceCliente {
-  id: number;
-  //id: string;
   doc_tipo: string;
   doc_numero: string;
   cli_nombre: string;
@@ -11,4 +9,8 @@ export interface interfaceCliente {
   direccion1: string;
   direccion2: string;
   observaciones: string;
+};
+
+export interface interfaceClienteId extends interfaceCliente {
+  id: number;
 };

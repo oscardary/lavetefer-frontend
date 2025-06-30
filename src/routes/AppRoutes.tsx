@@ -5,8 +5,14 @@ import Proveedores from "../pages/Proveedores";
 import Mascotas from "../pages/Mascotas";
 import Ordenes from "../pages/Ordenes";
 
-import CrearCliente from '../pages/CrearCliente';
-import EditarCliente from "../pages/EditarCliente";
+import CrearCliente from '../pages/ClientesCrear';
+import EditarCliente from "../pages/ClientesEditar";
+
+import CrearProveedor from '../pages/ProveedoresCrear';
+import EditarProveedor from '../pages/ProveedoresEditar';
+
+import CrearMascota from '../pages/MascotasCrear';
+import EditarMascota from '../pages/MascotasEditar';
 
 
 const AppRoutes = () => {
@@ -19,6 +25,10 @@ const AppRoutes = () => {
       <Route path="/ordenes" element={<Ordenes />} />
       <Route path="/clientes/nuevo" element={<CrearCliente />} />
       <Route path="/clientes/editar/:id" element={<EditarCliente />} />
+      <Route path="/proveedores/nuevo" element={<CrearProveedor />} />
+      <Route path="/proveedores/editar/:id" element={<EditarProveedor/>} />
+      <Route path="/mascotas/nuevo" element={<CrearMascota/>}/>
+      <Route path="/mascotas/editar/:id" element={<EditarMascota/>}/>
     </Routes>
   );
 };

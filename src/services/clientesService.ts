@@ -1,12 +1,12 @@
 import type { interfaceCliente } from "../types/Cliente";
 
-const API_URL = "http://localhost:3000/api/cliente";
+const API_URL = `${import.meta.env.VITE_APIURL}/cliente`; //"http://localhost:3000/api/cliente";
 
 export async function getClientes() {
   const res = await fetch(API_URL);
   if (!res.ok) throw new Error("Error al obtener clientes");
   return res.json();
-}
+};
 
 export const crearCliente = async (cliente: interfaceCliente) => {
   const response = await fetch(API_URL, {
@@ -40,7 +40,7 @@ export const actualizarCliente = async (id: number, cliente: interfaceCliente) =
   return await res.json();
 };
 
-export const eliminarCliente = async (id: string): Promise<void> => {
+export const eliminarCliente = async (id: number): Promise<void> => {
   const response = await fetch(`${API_URL}/${id}`, {
     method: 'DELETE',
   });
