@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import {
+import { 
   obtenerClientePorId,
   actualizarCliente,
   eliminarCliente
@@ -74,8 +74,8 @@ const EditarCliente = () => {
 
     try {
       if (id) {
-        await actualizarCliente(Number(id), { ...formData, id: Number(id) });
-        //await actualizarCliente(Number(id), { ...formData, id: Number(id) });
+        //await actualizarCliente(Number(id), { ...formData, idCliente: Number(id) });
+        await actualizarCliente(Number(id), formData);
         navigate("/clientes");
       }
     } catch (err: unknown) {

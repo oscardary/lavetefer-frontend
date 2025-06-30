@@ -5,6 +5,7 @@ import { crearCliente } from '../services/clientesService';
 const CrearCliente = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
+    //id: 0,
     doc_tipo: '',
     doc_numero: '',
     cli_nombre: '',

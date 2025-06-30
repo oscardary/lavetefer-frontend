@@ -1,14 +1,10 @@
 import { useEffect, useState } from "react";
 import { getClientes } from "../services/clientesService";
-import type { interfaceCliente } from "../types/Cliente";
+import type { interfaceClienteId } from "../types/Cliente";
 import { Link } from "react-router-dom";
 
-/*
-const Clientes = () => <div className="p-4">Gestión de Clientes</div>;
-export default Clientes;*/
-
 export default function Clientes() {
-  const [clientes, setClientes] = useState<interfaceCliente[]>([]);
+  const [clientes, setClientes] = useState<interfaceClienteId[]>([]);
   const [busqueda, setBusqueda] = useState("");
 
   useEffect(() => {
@@ -19,40 +15,9 @@ export default function Clientes() {
     `${cliente.cli_nombre} ${cliente.cli_apellido}`
       .toLowerCase()
       .includes(busqueda.toLowerCase()) ||
-    cliente.doc_numero.includes(busqueda)
+    cliente.doc_numero.includes(busqueda) ||
+    cliente.num_contacto1.includes(busqueda)
   );
-
-  /*return (
-    <div>
-      <div className="p-4">Gestión de Clientes</div>
-      <h1>Clientes</h1>
-      <ul>
-        {clientes.map((cliente) => (
-          <li
-            key={cliente.id}
-            className="flex items-center justify-between border-b py-2"
-          >
-            <span>
-              {cliente.cli_nombre} {cliente.cli_apellido}
-            </span>
-            <Link
-              to={`/clientes/editar/${cliente.id}`}
-              className="text-blue-500 hover:text-blue-700"
-              title="Editar cliente"
-            >
-               Edit
-            </Link>
-          </li>
-        ))}
-      </ul>
-      <Link
-        to="/clientes/nuevo"
-        className="bg-green-500 text-white p-2 rounded"
-      >
-        + Nuevo Cliente
-      </Link>
-    </div>
-  );*/
 
   return (
     <div className="p-4">
@@ -79,6 +44,7 @@ export default function Clientes() {
           <tr>
             <th className="p-2 border">Nombre</th>
             <th className="p-2 border">Documento</th>
+            <th className="p-2 border">Telefono</th>
             <th className="p-2 border">Ciudad</th>
             <th className="p-2 border">Acciones</th>
           </tr>
@@ -90,6 +56,7 @@ export default function Clientes() {
                 {cliente.cli_nombre} {cliente.cli_apellido}
               </td>
               <td className="p-2 border">{cliente.doc_tipo} {cliente.doc_numero}</td>
+              <td className="p-2 border">{cliente.num_contacto1}</td>
               <td className="p-2 border">{cliente.id_ciudad}</td>
               <td className="p-2 border space-x-2">
                 <Link
