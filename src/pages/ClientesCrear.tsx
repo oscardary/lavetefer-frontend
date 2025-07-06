@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { crearCliente } from '../services/clientesService';
+import AutocompleteCiudad from '@/components/AutocompleteCiudad';
 
 const CrearCliente = () => {
   const navigate = useNavigate();
@@ -134,14 +135,11 @@ const CrearCliente = () => {
           className="border p-2 rounded"
         />
 
-        <input
-          type="text"
-          name="id_ciudad"
-          placeholder="Código ciudad"
-          value={formData.id_ciudad}
-          onChange={handleChange}
-          className="border p-2 rounded"
-        />
+
+        <AutocompleteCiudad onSelect={(codigoCiudad) => 
+          setFormData((formDataActual) => ({...formDataActual, id_ciudad: codigoCiudad})
+        )} />
+
 
         <input
           type="text"

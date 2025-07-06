@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { getClientes } from "../services/clientesService";
 import type { interfaceClienteId } from "../types/Cliente";
 import { Link } from "react-router-dom";
+import ciudades from "@/data/colombia_ciudades.json";
+
 
 export default function Clientes() {
   const [clientes, setClientes] = useState<interfaceClienteId[]>([]);
@@ -18,6 +20,11 @@ export default function Clientes() {
     cliente.doc_numero.includes(busqueda) ||
     cliente.num_contacto1.includes(busqueda)
   );
+
+  const obtenerCiudad = (idCiudad: string) => {
+    const ciudadBuscada = ciudades.find((item) => item.codigo === idCiudad);
+    return ciudadBuscada ? `${ciudadBuscada.ciudad} - ${ciudadBuscada.departamento}` : 'Error'
+  }
 
   return (
     <div className="p-4">
@@ -57,7 +64,7 @@ export default function Clientes() {
               </td>
               <td className="p-2 border">{cliente.doc_tipo} {cliente.doc_numero}</td>
               <td className="p-2 border">{cliente.num_contacto1}</td>
-              <td className="p-2 border">{cliente.id_ciudad}</td>
+              <td className="p-2 border">{obtenerCiudad(cliente.id_ciudad)}</td>
               <td className="p-2 border space-x-2">
                 <Link
                   to={`/clientes/editar/${cliente.id}`}

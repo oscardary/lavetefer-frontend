@@ -1,11 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { 
-  obtenerClientePorId,
-  actualizarCliente,
-  eliminarCliente
-} from "../services/clientesService";
+import { obtenerClientePorId, actualizarCliente, eliminarCliente} from "../services/clientesService";
 //import type { interfaceCliente } from '../types/Cliente'
+import AutocompleteCiudad from '@/components/AutocompleteCiudad';
 
 const EditarCliente = () => {
   const { id } = useParams<{ id: string }>();
@@ -92,7 +89,7 @@ const EditarCliente = () => {
     if (!confirmacion || !id) return;
   
     try {
-      await eliminarCliente(id);
+      await eliminarCliente(Number(id));
       navigate('/clientes');
     } catch (err: unknown) {
       if (err instanceof Error) {
@@ -176,14 +173,14 @@ const EditarCliente = () => {
           onChange={handleChange}
           className="border p-2 rounded"
         />
-        <input
-          type="text"
-          name="id_ciudad"
-          placeholder="ID ciudad"
-          value={formData.id_ciudad}
-          onChange={handleChange}
-          className="border p-2 rounded"
+
+        <AutocompleteCiudad 
+          onSelect={(codigoCiudad) => 
+            setFormData((formDataActual) => ({...formDataActual, id_ciudad: codigoCiudad})
+          )}
+          valorInicial={formData.id_ciudad}
         />
+        
         <input
           type="text"
           name="direccion1"

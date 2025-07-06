@@ -1,0 +1,62 @@
+[
+  {
+    "pais": "Colombia",
+    "departamento": "Cundinamarca",
+    "ciudad": "Bogotá D.C.",
+    "codigo": "11001"
+  },
+  {
+    "pais": "Colombia",
+    "departamento": "Antioquia",
+    "ciudad": "Medellín",
+    "codigo": "05001"
+  },
+  {
+    "pais": "Colombia",
+    "departamento": "Valle del Cauca",
+    "ciudad": "Cali",
+    "codigo": "76001"
+  },
+  {
+    "pais": "Colombia",
+    "departamento": "Bolívar",
+    "ciudad": "Cartagena",
+    "codigo": "13001"
+  },
+  {
+    "pais": "Colombia",
+    "departamento": "Atlántico",
+    "ciudad": "Barranquilla",
+    "codigo": "08001"
+  },
+  {
+    "pais": "Colombia",
+    "departamento": "Caldas",
+    "ciudad": "Manizales",
+    "codigo": "17001"
+  },
+  {
+    "pais": "Colombia",
+    "departamento": "Boyacá",
+    "ciudad": "Tunja",
+    "codigo": "15001"
+  },
+  {
+    "pais": "Colombia",
+    "departamento": "Cesar",
+    "ciudad": "Valledupar",
+    "codigo": "20001"
+  },
+  {
+    "pais": "Colombia",
+    "departamento": "Santander",
+    "ciudad": "Bucaramanga",
+    "codigo": "68001"
+  },
+  {
+    "pais": "Colombia",
+    "departamento": "Tolima",
+    "ciudad": "Ibagué",
+    "codigo": "73001"
+  }
+]
